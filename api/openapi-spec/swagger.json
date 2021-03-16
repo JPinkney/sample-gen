@@ -14791,5 +14791,9 @@
       "type": "object"
     }
   },
-  "paths": {}
+  "paths": {},
+  "info": {
+    "title": "Kubernetes",
+    "version": "unversioned"
+  }
 }
