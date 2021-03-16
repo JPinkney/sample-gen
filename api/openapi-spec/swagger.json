@@ -14795,5 +14795,6 @@
   "info": {
     "title": "Kubernetes",
     "version": "unversioned"
-  }
+  },
+  "swagger": "2.0"
 }
