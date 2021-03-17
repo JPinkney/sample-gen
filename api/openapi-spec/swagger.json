@@ -4,26 +4,29 @@
       "description": "DevWorkspace is the Schema for the devworkspaces API",
       "properties": {
         "spec": {
-          "description": "DevWorkspaceSpec defines the desired state of DevWorkspace",
-          "properties": {
-            "routingClass": {
-              "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass"
-            },
-            "started": {
-              "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_started"
-            },
-            "template": {
-              "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template"
-            }
-          },
-          "required": [
-            "started"
-          ],
-          "type": "object"
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io.test_spec"
         }
       },
       "type": "object"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io.test_spec": {
+      "description": "DevWorkspaceSpec defines the desired state of DevWorkspace",
+        "properties": {
+          "routingClass": {
+            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass"
+          },
+          "started": {
+            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_started"
+          },
+          "template": {
+            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template"
+          }
+        },
+        "required": [
+          "started"
+        ],
+        "type": "object"
+    }
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass": {
       "type": "string"
     },
