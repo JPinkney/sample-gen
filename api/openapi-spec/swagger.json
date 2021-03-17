@@ -1,69 +1,28 @@
 {
   "definitions": {
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_conditions": {
-      "description": "Conditions represent the latest available observations of an object's state",
-      "items": {
-        "description": "WorkspaceCondition contains details for the current condition of this workspace.",
-        "properties": {
-          "lastTransitionTime": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_lastTransitionTime"
+    "v1alpha1.devworkspaces.workspace.devfile.io": {
+      "description": "DevWorkspace is the Schema for the devworkspaces API",
+      "properties": {
+        "spec": {
+          "description": "DevWorkspaceSpec defines the desired state of DevWorkspace",
+          "properties": {
+            "routingClass": {
+              "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass"
+            },
+            "started": {
+              "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_started"
+            },
+            "template": {
+              "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template"
+            }
           },
-          "message": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_message"
-          },
-          "reason": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_reason"
-          },
-          "status": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_status"
-          },
-          "type": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_type"
-          }
-        },
-        "required": [
-          "status",
-          "type"
-        ],
-        "type": "object"
+          "required": [
+            "started"
+          ],
+          "type": "object"
+        }
       },
-      "type": "array"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_ideUrl": {
-      "description": "URL at which the Worksace Editor can be joined",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_message": {
-      "description": "Message is a short user-readable message giving additional information about an object's state",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_phase": {
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_workspaceId": {
-      "description": "Id of the workspace",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_lastTransitionTime": {
-      "description": "Last time the condition transitioned from one status to another.",
-      "format": "date-time",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_message": {
-      "description": "Human-readable message indicating details about last transition.",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_reason": {
-      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_status": {
-      "description": "Phase is the status of the condition. Can be True, False, Unknown.",
-      "type": "string"
-    },
-    "v1alpha1.devworkspaces.workspace.devfile.io_status_conditions_type": {
-      "description": "Type is the type of the condition.",
-      "type": "string"
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass": {
       "type": "string"
