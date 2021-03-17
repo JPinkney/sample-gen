@@ -26,7 +26,7 @@
           "started"
         ],
         "type": "object"
-    }
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass": {
       "type": "string"
     },
