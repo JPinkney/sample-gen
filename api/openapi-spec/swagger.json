@@ -1898,6 +1898,20 @@
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.targetPort": {
       "type": "integer"
     },
+    "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.command.items": {
+      "description": "The command to run in the dockerimage component instead of the default one provided in the image. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.args.items": {
+      "description": "The arguments to supply to the command running the dockerimage component. The arguments are supplied either to the default command provided in the image or to the overridden command. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items": {
       "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
       "items": {
@@ -2396,6 +2410,13 @@
       ],
       "type": "string"
     },
+    "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.composite.commands.items": {
+      "description": "The commands that comprise this composite command",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.apply.attributes": {
       "additionalProperties": {
         "type": "string"
@@ -2796,6 +2817,20 @@
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.targetPort": {
       "type": "integer"
+    },
+    "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.command.items": {
+      "description": "The command to run in the dockerimage component instead of the default one provided in the image. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.args.items": {
+      "description": "The arguments to supply to the command running the dockerimage component. The arguments are supplied either to the default command provided in the image or to the overridden command. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.commands.items": {
       "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
@@ -3295,6 +3330,13 @@
       ],
       "type": "string"
     },
+    "v1alpha1.DevWorkspace.spec.template.parent.commands.items.composite.commands.items": {
+      "description": "The commands that comprise this composite command",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "v1alpha1.DevWorkspace.spec.template.parent.commands.items.apply.attributes": {
       "additionalProperties": {
         "type": "string"
@@ -3366,6 +3408,34 @@
     },
     "v1alpha1.DevWorkspace.spec.template.events.preStop": {
       "description": "Names of commands that should be executed before stopping the workspace.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.events.preStop.items": {
+      "description": "Names of commands that should be executed before stopping the workspace.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.events.preStart.items": {
+      "description": "Names of commands that should be executed before the workspace start. Kubernetes-wise, these commands would typically be executed in init containers of the workspace POD.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.events.postStop.items": {
+      "description": "Names of commands that should be executed after stopping the workspace.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.events.postStart.items": {
+      "description": "Names of commands that should be executed after the workspace is completely started. In the case of Che-Theia, these commands should be executed after all plugins and extensions have started, including project cloning. This means that those commands are not triggered until the user opens the IDE in his browser.",
       "items": {
         "type": "string"
       },
@@ -4127,6 +4197,20 @@
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.targetPort": {
       "type": "integer"
     },
+    "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.command.items": {
+      "description": "The command to run in the dockerimage component instead of the default one provided in the image. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.args.items": {
+      "description": "The arguments to supply to the command running the dockerimage component. The arguments are supplied either to the default command provided in the image or to the overridden command. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items": {
       "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
       "items": {
@@ -4625,6 +4709,13 @@
       ],
       "type": "string"
     },
+    "v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.composite.commands.items": {
+      "description": "The commands that comprise this composite command",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.apply.attributes": {
       "additionalProperties": {
         "type": "string"
@@ -5025,6 +5116,20 @@
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.targetPort": {
       "type": "integer"
+    },
+    "v1alpha1.DevWorkspace.spec.template.components.items.container.command.items": {
+      "description": "The command to run in the dockerimage component instead of the default one provided in the image. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "v1alpha1.DevWorkspace.spec.template.components.items.container.args.items": {
+      "description": "The arguments to supply to the command running the dockerimage component. The arguments are supplied either to the default command provided in the image or to the overridden command. \n Defaults to an empty array, meaning use whatever is defined in the image.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "v1alpha1.DevWorkspace.spec.template.commands.items": {
       "description": "Predefined, ready-to-use, workspace-related commands",
@@ -5523,6 +5628,13 @@
         "debug"
       ],
       "type": "string"
+    },
+    "v1alpha1.DevWorkspace.spec.template.commands.items.composite.commands.items": {
+      "description": "The commands that comprise this composite command",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "v1alpha1.DevWorkspace.spec.template.commands.items.apply.attributes": {
       "additionalProperties": {
