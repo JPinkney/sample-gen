@@ -4,28 +4,28 @@
       "description": "DevWorkspace is the Schema for the devworkspaces API",
       "properties": {
         "spec": {
-          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io.test_spec"
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec"
         }
       },
       "type": "object"
     },
-    "v1alpha1.devworkspaces.workspace.devfile.io.test_spec": {
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec": {
       "description": "DevWorkspaceSpec defines the desired state of DevWorkspace",
-        "properties": {
-          "routingClass": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass"
-          },
-          "started": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_started"
-          },
-          "template": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template"
-          }
+      "properties": {
+        "routingClass": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass"
         },
-        "required": [
-          "started"
-        ],
-        "type": "object"
+        "started": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_started"
+        },
+        "template": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template"
+        }
+      },
+      "required": [
+        "started"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_routingClass": {
       "type": "string"
@@ -60,60 +60,14 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands": {
       "description": "Predefined, ready-to-use, workspace-related commands",
       "items": {
-        "properties": {
-          "apply": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_apply"
-          },
-          "commandType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_commandType"
-          },
-          "composite": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_composite"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_custom"
-          },
-          "exec": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec"
-          },
-          "vscodeLaunch": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_vscodeLaunch"
-          },
-          "vscodeTask": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_vscodeTask"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components": {
       "description": "List of the workspace components, such as editor and plugins, user-provided containers, or other types of components",
       "items": {
-        "properties": {
-          "componentType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_componentType"
-          },
-          "container": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_custom"
-          },
-          "kubernetes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes"
-          },
-          "openshift": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift"
-          },
-          "plugin": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin"
-          },
-          "volume": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_volume"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_properties"
       },
       "type": "array"
     },
@@ -171,71 +125,48 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects": {
       "description": "Projects worked on in the workspace, containing names and sources locations",
       "items": {
-        "properties": {
-          "clonePath": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_clonePath"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_custom"
-          },
-          "git": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_git"
-          },
-          "github": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_github"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_name"
-          },
-          "sourceType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_sourceType"
-          },
-          "zip": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_zip"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects": {
       "description": "StarterProjects is a project that can be used as a starting point when bootstrapping new projects",
       "items": {
-        "properties": {
-          "clonePath": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_clonePath"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_custom"
-          },
-          "description": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_description"
-          },
-          "git": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_git"
-          },
-          "github": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_github"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_name"
-          },
-          "sourceType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_sourceType"
-          },
-          "zip": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_zip"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_properties"
       },
       "type": "array"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_properties": {
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_custom"
+        },
+        "description": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_description"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_zip"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_clonePath": {
       "description": "Path relative to the root of the projects to which this project should be cloned into. This is a unix-style relative path (i.e. uses forward slashes). The path is invalid if it is absolute or tries to escape the project root through the usage of '..'. If not specified, defaults to the project name.",
@@ -395,6 +326,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_starterProjects_custom_projectSourceClass": {
       "type": "string"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_properties": {
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_custom"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_zip"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_projects_clonePath": {
       "description": "Path relative to the root of the projects to which this project should be cloned into. This is a unix-style relative path (i.e. uses forward slashes). The path is invalid if it is absolute or tries to escape the project root through the usage of '..'. If not specified, defaults to the project name.",
       "type": "string"
@@ -552,60 +512,14 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands": {
       "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
       "items": {
-        "properties": {
-          "apply": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_apply"
-          },
-          "commandType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_commandType"
-          },
-          "composite": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_composite"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_custom"
-          },
-          "exec": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec"
-          },
-          "vscodeLaunch": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_vscodeLaunch"
-          },
-          "vscodeTask": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_vscodeTask"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components": {
       "description": "Overrides of components encapsulated in a parent devfile. Overriding is done using a strategic merge patch",
       "items": {
-        "properties": {
-          "componentType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_componentType"
-          },
-          "container": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_custom"
-          },
-          "kubernetes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes"
-          },
-          "openshift": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift"
-          },
-          "plugin": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin"
-          },
-          "volume": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_volume"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_properties"
       },
       "type": "array"
     },
@@ -640,33 +554,7 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects": {
       "description": "Overrides of projects encapsulated in a parent devfile. Overriding is done using a strategic merge patch.",
       "items": {
-        "properties": {
-          "clonePath": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_clonePath"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_custom"
-          },
-          "git": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_git"
-          },
-          "github": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_github"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_name"
-          },
-          "sourceType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_sourceType"
-          },
-          "zip": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_zip"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_properties"
       },
       "type": "array"
     },
@@ -676,42 +564,45 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects": {
       "description": "Overrides of starter projects encapsulated in a parent devfile Overriding is done using a strategic merge patch.",
       "items": {
-        "properties": {
-          "clonePath": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_clonePath"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_custom"
-          },
-          "description": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_description"
-          },
-          "git": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_git"
-          },
-          "github": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_github"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_name"
-          },
-          "sourceType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_sourceType"
-          },
-          "zip": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_zip"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_uri": {
       "description": "Uri of a Devfile yaml file",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_properties": {
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_custom"
+        },
+        "description": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_description"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_zip"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_clonePath": {
       "description": "Path relative to the root of the projects to which this project should be cloned into. This is a unix-style relative path (i.e. uses forward slashes). The path is invalid if it is absolute or tries to escape the project root through the usage of '..'. If not specified, defaults to the project name.",
@@ -870,6 +761,35 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_starterProjects_custom_projectSourceClass": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_properties": {
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_custom"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_zip"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_projects_clonePath": {
       "description": "Path relative to the root of the projects to which this project should be cloned into. This is a unix-style relative path (i.e. uses forward slashes). The path is invalid if it is absolute or tries to escape the project root through the usage of '..'. If not specified, defaults to the project name.",
@@ -1030,6 +950,32 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_kubernetes_namespace": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_properties": {
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_custom"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift"
+        },
+        "plugin": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_volume"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_componentType": {
       "description": "Type of component",
@@ -1216,54 +1162,14 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands": {
       "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
       "items": {
-        "properties": {
-          "apply": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_apply"
-          },
-          "commandType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_commandType"
-          },
-          "composite": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_composite"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_custom"
-          },
-          "exec": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec"
-          },
-          "vscodeLaunch": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_vscodeLaunch"
-          },
-          "vscodeTask": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_vscodeTask"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components": {
       "description": "Overrides of components encapsulated in a plugin. Overriding is done using a strategic merge patch. A plugin cannot override embedded plugin components.",
       "items": {
-        "properties": {
-          "componentType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_componentType"
-          },
-          "container": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container"
-          },
-          "kubernetes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes"
-          },
-          "openshift": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift"
-          },
-          "volume": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_volume"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_properties"
       },
       "type": "array"
     },
@@ -1311,6 +1217,26 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_kubernetes_namespace": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_properties": {
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_volume"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_componentType": {
       "description": "Type of component override for a plugin",
@@ -1444,33 +1370,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_properties"
       },
       "type": "array"
     },
@@ -1493,6 +1393,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_openshift_endpoints_attributes": {
       "additionalProperties": {
@@ -1530,33 +1459,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_properties"
       },
       "type": "array"
     },
@@ -1579,6 +1482,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_kubernetes_endpoints_attributes": {
       "additionalProperties": {
@@ -1634,52 +1566,14 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env": {
       "description": "Environment variables used in this container",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_properties"
       },
       "type": "array"
     },
@@ -1702,21 +1596,24 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts": {
       "description": "List of volumes mounts that should be mounted is this container.",
       "items": {
-        "description": "Volume that should be mounted to a component container",
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_path"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_properties"
       },
       "type": "array"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_properties": {
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_path"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_volumeMounts_name": {
       "description": "The volume mount name is the name of an existing `Volume` component. If several containers mount the same volume name then they will reuse the same volume and will be able to access to the same files.",
@@ -1726,11 +1623,55 @@
       "description": "The path in the component container where the volume should be mounted. If not path is mentioned, default path is the is `/<name>`.",
       "type": "string"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_name": {
       "type": "string"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_env_value": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_attributes": {
       "additionalProperties": {
@@ -1765,6 +1706,32 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_components_container_endpoints_targetPort": {
       "type": "integer"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_properties": {
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_vscodeTask"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_apply": {
       "description": "Command that consists in applying a given component definition, typically bound to a workspace event. \n For example, when an `apply` command is bound to a `preStart` event, and references a `container` component, it will start the container as a K8S initContainer in the workspace POD, unless the component has its `dedicatedPod` field set to `true`. \n When no `apply` command exist for a given component, it is assumed the component will be applied at workspace start by default.",
@@ -2078,19 +2045,7 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env": {
       "description": "Optional list of environment variables that have to be set before running the command",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_properties"
       },
       "type": "array"
     },
@@ -2138,6 +2093,21 @@
         "debug"
       ],
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_plugin_commands_exec_env_name": {
       "type": "string"
@@ -2304,33 +2274,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_properties"
       },
       "type": "array"
     },
@@ -2353,6 +2297,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_openshift_endpoints_attributes": {
       "additionalProperties": {
@@ -2390,33 +2363,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_properties"
       },
       "type": "array"
     },
@@ -2439,6 +2386,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_kubernetes_endpoints_attributes": {
       "additionalProperties": {
@@ -2508,52 +2484,14 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env": {
       "description": "Environment variables used in this container",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_properties"
       },
       "type": "array"
     },
@@ -2576,21 +2514,24 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts": {
       "description": "List of volumes mounts that should be mounted is this container.",
       "items": {
-        "description": "Volume that should be mounted to a component container",
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_path"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_properties"
       },
       "type": "array"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_properties": {
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_path"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_volumeMounts_name": {
       "description": "The volume mount name is the name of an existing `Volume` component. If several containers mount the same volume name then they will reuse the same volume and will be able to access to the same files.",
@@ -2600,11 +2541,55 @@
       "description": "The path in the component container where the volume should be mounted. If not path is mentioned, default path is the is `/<name>`.",
       "type": "string"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_name": {
       "type": "string"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_env_value": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_attributes": {
       "additionalProperties": {
@@ -2639,6 +2624,32 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_components_container_endpoints_targetPort": {
       "type": "integer"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_properties": {
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_vscodeTask"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_apply": {
       "description": "Command that consists in applying a given component definition, typically bound to a workspace event. \n For example, when an `apply` command is bound to a `preStart` event, and references a `container` component, it will start the container as a K8S initContainer in the workspace POD, unless the component has its `dedicatedPod` field set to `true`. \n When no `apply` command exist for a given component, it is assumed the component will be applied at workspace start by default.",
@@ -2952,19 +2963,7 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env": {
       "description": "Optional list of environment variables that have to be set before running the command",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_properties"
       },
       "type": "array"
     },
@@ -3012,6 +3011,21 @@
         "debug"
       ],
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_parent_commands_exec_env_name": {
       "type": "string"
@@ -3204,6 +3218,32 @@
       },
       "type": "array"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_properties": {
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_custom"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift"
+        },
+        "plugin": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_volume"
+        }
+      },
+      "type": "object"
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_componentType": {
       "description": "Type of component",
       "enum": [
@@ -3389,54 +3429,14 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands": {
       "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
       "items": {
-        "properties": {
-          "apply": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_apply"
-          },
-          "commandType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_commandType"
-          },
-          "composite": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_composite"
-          },
-          "custom": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_custom"
-          },
-          "exec": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec"
-          },
-          "vscodeLaunch": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_vscodeLaunch"
-          },
-          "vscodeTask": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_vscodeTask"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components": {
       "description": "Overrides of components encapsulated in a plugin. Overriding is done using a strategic merge patch. A plugin cannot override embedded plugin components.",
       "items": {
-        "properties": {
-          "componentType": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_componentType"
-          },
-          "container": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container"
-          },
-          "kubernetes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes"
-          },
-          "openshift": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift"
-          },
-          "volume": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_volume"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_properties"
       },
       "type": "array"
     },
@@ -3484,6 +3484,26 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_kubernetes_namespace": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_properties": {
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_volume"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_componentType": {
       "description": "Type of component override for a plugin",
@@ -3617,33 +3637,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_properties"
       },
       "type": "array"
     },
@@ -3666,6 +3660,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_openshift_endpoints_attributes": {
       "additionalProperties": {
@@ -3703,33 +3726,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_properties"
       },
       "type": "array"
     },
@@ -3752,6 +3749,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_kubernetes_endpoints_attributes": {
       "additionalProperties": {
@@ -3807,52 +3833,14 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env": {
       "description": "Environment variables used in this container",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_properties"
       },
       "type": "array"
     },
@@ -3875,21 +3863,24 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts": {
       "description": "List of volumes mounts that should be mounted is this container.",
       "items": {
-        "description": "Volume that should be mounted to a component container",
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_path"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_properties"
       },
       "type": "array"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_properties": {
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_path"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_volumeMounts_name": {
       "description": "The volume mount name is the name of an existing `Volume` component. If several containers mount the same volume name then they will reuse the same volume and will be able to access to the same files.",
@@ -3899,11 +3890,55 @@
       "description": "The path in the component container where the volume should be mounted. If not path is mentioned, default path is the is `/<name>`.",
       "type": "string"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_name": {
       "type": "string"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_env_value": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_attributes": {
       "additionalProperties": {
@@ -3938,6 +3973,32 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_components_container_endpoints_targetPort": {
       "type": "integer"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_properties": {
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_vscodeTask"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_apply": {
       "description": "Command that consists in applying a given component definition, typically bound to a workspace event. \n For example, when an `apply` command is bound to a `preStart` event, and references a `container` component, it will start the container as a K8S initContainer in the workspace POD, unless the component has its `dedicatedPod` field set to `true`. \n When no `apply` command exist for a given component, it is assumed the component will be applied at workspace start by default.",
@@ -4251,19 +4312,7 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env": {
       "description": "Optional list of environment variables that have to be set before running the command",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_properties"
       },
       "type": "array"
     },
@@ -4311,6 +4360,21 @@
         "debug"
       ],
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_plugin_commands_exec_env_name": {
       "type": "string"
@@ -4477,33 +4541,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_properties"
       },
       "type": "array"
     },
@@ -4526,6 +4564,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_openshift_endpoints_attributes": {
       "additionalProperties": {
@@ -4563,33 +4630,7 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_properties"
       },
       "type": "array"
     },
@@ -4612,6 +4653,35 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_uri": {
       "description": "Location in a file fetched from a uri.",
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_kubernetes_endpoints_attributes": {
       "additionalProperties": {
@@ -4681,52 +4751,14 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints": {
       "items": {
-        "properties": {
-          "attributes": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_attributes"
-          },
-          "exposure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_exposure"
-          },
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_path"
-          },
-          "protocol": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_protocol"
-          },
-          "secure": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_secure"
-          },
-          "targetPort": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_targetPort"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_properties"
       },
       "type": "array"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env": {
       "description": "Environment variables used in this container",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_properties"
       },
       "type": "array"
     },
@@ -4749,21 +4781,24 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts": {
       "description": "List of volumes mounts that should be mounted is this container.",
       "items": {
-        "description": "Volume that should be mounted to a component container",
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_name"
-          },
-          "path": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_path"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_properties"
       },
       "type": "array"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_properties": {
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_path"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_volumeMounts_name": {
       "description": "The volume mount name is the name of an existing `Volume` component. If several containers mount the same volume name then they will reuse the same volume and will be able to access to the same files.",
@@ -4773,11 +4808,55 @@
       "description": "The path in the component container where the volume should be mounted. If not path is mentioned, default path is the is `/<name>`.",
       "type": "string"
     },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_name": {
       "type": "string"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_env_value": {
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_targetPort"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_attributes": {
       "additionalProperties": {
@@ -4812,6 +4891,32 @@
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_components_container_endpoints_targetPort": {
       "type": "integer"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_properties": {
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_vscodeTask"
+        }
+      },
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_apply": {
       "description": "Command that consists in applying a given component definition, typically bound to a workspace event. \n For example, when an `apply` command is bound to a `preStart` event, and references a `container` component, it will start the container as a K8S initContainer in the workspace POD, unless the component has its `dedicatedPod` field set to `true`. \n When no `apply` command exist for a given component, it is assumed the component will be applied at workspace start by default.",
@@ -5125,19 +5230,7 @@
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env": {
       "description": "Optional list of environment variables that have to be set before running the command",
       "items": {
-        "properties": {
-          "name": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_name"
-          },
-          "value": {
-            "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_value"
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_properties"
       },
       "type": "array"
     },
@@ -5185,6 +5278,21 @@
         "debug"
       ],
       "type": "string"
+    },
+    "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_properties": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.devworkspaces.workspace.devfile.io_spec_template_commands_exec_env_name": {
       "type": "string"
