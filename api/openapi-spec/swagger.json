@@ -75,11 +75,29 @@
       "type": "object"
     },
     "v1alpha1.DevWorkspace.status.conditions": {
-      "description": "Conditions represent the latest available observations of an object's state",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.status.conditions"
+      "description": "WorkspaceCondition contains details for the current condition of this workspace.",
+      "properties": {
+        "lastTransitionTime": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.status.conditions.items.lastTransitionTime"
+        },
+        "message": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.status.conditions.items.message"
+        },
+        "reason": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.status.conditions.items.reason"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.status.conditions.items.status"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.status.conditions.items.type"
+        }
       },
-      "type": "array"
+      "required": [
+        "status",
+        "type"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.status.ideUrl": {
       "description": "URL at which the Worksace Editor can be joined",
@@ -155,18 +173,56 @@
       "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.commands": {
-      "description": "Predefined, ready-to-use, workspace-related commands",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands"
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.vscodeTask"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components": {
-      "description": "List of the workspace components, such as editor and plugins, user-provided containers, or other types of components",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components"
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.custom"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift"
+        },
+        "plugin": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.volume"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.events": {
       "description": "Bindings of commands to events. Each command is referred-to by its name.",
@@ -220,18 +276,65 @@
       "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.projects": {
-      "description": "Projects worked on in the workspace, containing names and sources locations",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects"
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.custom"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.projects.items.zip"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.starterProjects": {
-      "description": "StarterProjects is a project that can be used as a starting point when bootstrapping new projects",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects"
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.custom"
+        },
+        "description": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.description"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.starterProjects.items.zip"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.starterProjects.items": {
       "description": "StarterProjects is a project that can be used as a starting point when bootstrapping new projects",
@@ -560,18 +663,56 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.commands": {
-      "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands"
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.vscodeTask"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components": {
-      "description": "Overrides of components encapsulated in a parent devfile. Overriding is done using a strategic merge patch",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components"
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.custom"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift"
+        },
+        "plugin": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.volume"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.id": {
       "description": "Id in a registry that contains a Devfile yaml file",
@@ -602,21 +743,68 @@
       "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.projects": {
-      "description": "Overrides of projects encapsulated in a parent devfile. Overriding is done using a strategic merge patch.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects"
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.custom"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.projects.items.zip"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.registryUrl": {
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.starterProjects": {
-      "description": "Overrides of starter projects encapsulated in a parent devfile Overriding is done using a strategic merge patch.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects"
+      "properties": {
+        "clonePath": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.clonePath"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.custom"
+        },
+        "description": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.description"
+        },
+        "git": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.git"
+        },
+        "github": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.github"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.name"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.sourceType"
+        },
+        "zip": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.starterProjects.items.zip"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.uri": {
       "description": "Uri of a Devfile yaml file",
@@ -1144,18 +1332,50 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands": {
-      "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands"
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.vscodeTask"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components": {
-      "description": "Overrides of components encapsulated in a plugin. Overriding is done using a strategic merge patch. A plugin cannot override embedded plugin components.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components"
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.volume"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.id": {
       "description": "Id in a registry that contains a Devfile yaml file",
@@ -1340,10 +1560,33 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.openshift.inlined": {
       "description": "Inlined manifest",
@@ -1406,10 +1649,33 @@
       "type": "integer"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.kubernetes.inlined": {
       "description": "Inlined manifest",
@@ -1490,17 +1756,48 @@
       "type": "boolean"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.env": {
-      "description": "Environment variables used in this container",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.image": {
       "type": "string"
@@ -1519,11 +1816,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.volumeMounts": {
-      "description": "List of volumes mounts that should be mounted is this container.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.volumeMounts"
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.volumeMounts.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.volumeMounts.items.path"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.components.items.container.volumeMounts.items": {
       "description": "List of volumes mounts that should be mounted is this container.",
@@ -1910,11 +2215,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.exec.env": {
-      "description": "Optional list of environment variables that have to be set before running the command",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.exec.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.exec.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.exec.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.plugin.commands.items.exec.group": {
       "description": "Defines the group this command is part of",
@@ -2132,10 +2445,33 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.openshift.inlined": {
       "description": "Inlined manifest",
@@ -2198,10 +2534,33 @@
       "type": "integer"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.kubernetes.inlined": {
       "description": "Inlined manifest",
@@ -2296,17 +2655,48 @@
       "type": "boolean"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.env": {
-      "description": "Environment variables used in this container",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.image": {
       "type": "string"
@@ -2325,11 +2715,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.volumeMounts": {
-      "description": "List of volumes mounts that should be mounted is this container.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.volumeMounts"
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.volumeMounts.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.components.items.container.volumeMounts.items.path"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.components.items.container.volumeMounts.items": {
       "description": "List of volumes mounts that should be mounted is this container.",
@@ -2716,11 +3114,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.commands.items.exec.env": {
-      "description": "Optional list of environment variables that have to be set before running the command",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.exec.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.exec.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.parent.commands.items.exec.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.parent.commands.items.exec.group": {
       "description": "Defines the group this command is part of",
@@ -3155,18 +3561,50 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands": {
-      "description": "Overrides of commands encapsulated in a parent devfile or a plugin. Overriding is done using a strategic merge patch",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands"
+      "properties": {
+        "apply": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.apply"
+        },
+        "commandType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.commandType"
+        },
+        "composite": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.composite"
+        },
+        "custom": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.custom"
+        },
+        "exec": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.exec"
+        },
+        "vscodeLaunch": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.vscodeLaunch"
+        },
+        "vscodeTask": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.vscodeTask"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components": {
-      "description": "Overrides of components encapsulated in a plugin. Overriding is done using a strategic merge patch. A plugin cannot override embedded plugin components.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components"
+      "properties": {
+        "componentType": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.componentType"
+        },
+        "container": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container"
+        },
+        "kubernetes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes"
+        },
+        "openshift": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift"
+        },
+        "volume": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.volume"
+        }
       },
-      "type": "array"
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.id": {
       "description": "Id in a registry that contains a Devfile yaml file",
@@ -3351,10 +3789,33 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.openshift.inlined": {
       "description": "Inlined manifest",
@@ -3417,10 +3878,33 @@
       "type": "integer"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.kubernetes.inlined": {
       "description": "Inlined manifest",
@@ -3501,17 +3985,48 @@
       "type": "boolean"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.env": {
-      "description": "Environment variables used in this container",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.image": {
       "type": "string"
@@ -3530,11 +4045,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.volumeMounts": {
-      "description": "List of volumes mounts that should be mounted is this container.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.volumeMounts"
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.volumeMounts.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.volumeMounts.items.path"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.components.items.container.volumeMounts.items": {
       "description": "List of volumes mounts that should be mounted is this container.",
@@ -3921,11 +4444,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.exec.env": {
-      "description": "Optional list of environment variables that have to be set before running the command",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.exec.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.exec.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.exec.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.plugin.commands.items.exec.group": {
       "description": "Defines the group this command is part of",
@@ -4143,10 +4674,33 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.openshift.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.openshift.inlined": {
       "description": "Inlined manifest",
@@ -4209,10 +4763,33 @@
       "type": "integer"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.kubernetes.inlined": {
       "description": "Inlined manifest",
@@ -4307,17 +4884,48 @@
       "type": "boolean"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints": {
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints"
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.attributes"
+        },
+        "exposure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.exposure"
+        },
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.path"
+        },
+        "protocol": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.protocol"
+        },
+        "secure": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.secure"
+        },
+        "targetPort": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.endpoints.items.targetPort"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.container.env": {
-      "description": "Environment variables used in this container",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.container.image": {
       "type": "string"
@@ -4336,11 +4944,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.container.volumeMounts": {
-      "description": "List of volumes mounts that should be mounted is this container.",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.volumeMounts"
+      "description": "Volume that should be mounted to a component container",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.volumeMounts.items.name"
+        },
+        "path": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.components.items.container.volumeMounts.items.path"
+        }
       },
-      "type": "array"
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.components.items.container.volumeMounts.items": {
       "description": "List of volumes mounts that should be mounted is this container.",
@@ -4727,11 +5343,19 @@
       "type": "string"
     },
     "v1alpha1.DevWorkspace.spec.template.commands.items.exec.env": {
-      "description": "Optional list of environment variables that have to be set before running the command",
-      "items": {
-        "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.exec.env"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.exec.env.items.name"
+        },
+        "value": {
+          "$ref": "#/definitions/v1alpha1.DevWorkspace.spec.template.commands.items.exec.env.items.value"
+        }
       },
-      "type": "array"
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
     },
     "v1alpha1.DevWorkspace.spec.template.commands.items.exec.group": {
       "description": "Defines the group this command is part of",
